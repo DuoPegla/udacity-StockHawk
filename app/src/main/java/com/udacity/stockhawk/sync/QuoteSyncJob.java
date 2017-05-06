@@ -76,7 +76,7 @@ public final class QuoteSyncJob {
 
                 if (stock.getName() == null)
                 {
-                    Toast.makeText(context, "Unable to find " + symbol + " stock.", Toast.LENGTH_LONG).show();
+                    // TODO Show message to user
                     continue;
                 }
 

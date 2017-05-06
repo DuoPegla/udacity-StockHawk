@@ -100,6 +100,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
             swipeRefreshLayout.setRefreshing(false);
             error.setText(getString(R.string.error_no_network));
             error.setVisibility(View.VISIBLE);
+            Toast.makeText(this, R.string.toast_no_connectivity, Toast.LENGTH_LONG).show();
         } else if (!networkUp()) {
             swipeRefreshLayout.setRefreshing(false);
             Toast.makeText(this, R.string.toast_no_connectivity, Toast.LENGTH_LONG).show();
@@ -146,6 +147,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         if (data.getCount() != 0) {
             error.setVisibility(View.GONE);
         }
+
         adapter.setCursor(data);
     }
 
