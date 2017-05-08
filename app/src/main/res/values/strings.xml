@@ -34,5 +34,6 @@
 
     <string name="add_stock_content_description">Add new stock</string>
     <string name="display_mode_content_description">Switch stock trend display mode. Currently set to %s</string>
+    <string name="widget_title">Awesome Widget</string>
 
 </resources>
