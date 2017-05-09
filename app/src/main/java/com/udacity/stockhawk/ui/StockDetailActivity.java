@@ -10,15 +10,18 @@ import android.widget.TextView;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.AxisBase;
 import com.github.mikephil.charting.components.XAxis;
+import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
 import com.github.mikephil.charting.formatter.IAxisValueFormatter;
+import com.github.mikephil.charting.renderer.YAxisRenderer;
 import com.udacity.stockhawk.R;
 import com.udacity.stockhawk.data.Contract;
 
 import java.io.IOException;
 import java.io.StringReader;
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -109,6 +112,18 @@ public class StockDetailActivity extends AppCompatActivity
                 return new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH).format(date);
             }
         });
+
+        final YAxis yAxisRight = mChart.getAxisRight();
+        yAxisRight.setValueFormatter(new IAxisValueFormatter() {
+            @Override
+            public String getFormattedValue(float value, AxisBase axis) {
+                DecimalFormat decimalFormat = new DecimalFormat("$#");
+                return decimalFormat.format(value);
+            }
+        });
+
+        mChart.getAxisLeft().setDrawLabels(false);
+
 
         mChart.invalidate();
     }
